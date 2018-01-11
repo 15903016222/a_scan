@@ -19,23 +19,15 @@ void MyThread::draw_a_scan()
     QByteArray data;
     static int index = 0;
     const int pointQty = 512;
-//    const char *temp = NULL;
     char temp[512] = {0};
 
     for (index = 0; index < 512; ++index) {
         temp[index] = rand() % 600;
     }
 
-//    if ((temp = m_dma->read_data()) == NULL) {
-//        return ;
-//    }
 
     data = QByteArray(temp/* + index*/, pointQty);
     emit draw_data(data);
-//    index += 1024;
-//    if (index > (512 * 1024 - 512)) {
-//        index = 0;
-//    }
 }
 
 void MyThread::run()
